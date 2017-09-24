@@ -26,55 +26,46 @@ namespace CountingDuplicates
         [TestMethod]
         public void Input_Empty_should_return_0()
         {
-            CountingDuplicate counting = new CountingDuplicate();
-            var result = counting.DuplicateCharCount("a");
-
-            Assert.AreEqual(0, result);
+            CountShouldEqual(string.Empty, 0);
         }
+
 
         [TestMethod]
         public void Input_a_should_return_0()
         {
-            CountingDuplicate counting = new CountingDuplicate();
-            var result = counting.DuplicateCharCount("a");
-
-            Assert.AreEqual(0, result);
+            CountShouldEqual("a", 0);
         }
 
         [TestMethod]
         public void Input_aa_should_return_1()
         {
-            CountingDuplicate counting = new CountingDuplicate();
-            var result = counting.DuplicateCharCount("aa");
-
-            Assert.AreEqual(1, result);
+            CountShouldEqual("aa", 1);
         }
 
         [TestMethod]
         public void Input_aA_should_return_1()
         {
-            CountingDuplicate counting = new CountingDuplicate();
-            var result = counting.DuplicateCharCount("aA");
-
-            Assert.AreEqual(1, result);
+            CountShouldEqual("aA", 1);
         }
 
         [TestMethod]
         public void Input_ABBA_should_return_2()
         {
-            CountingDuplicate counting = new CountingDuplicate();
-            var result = counting.DuplicateCharCount("ABBA");
-
-            Assert.AreEqual(2, result);
+            CountShouldEqual("ABBA", 2);
         }
 
         [TestMethod]
         public void Input_aabBcde_should_return_2()
         {
-            CountingDuplicate counting = new CountingDuplicate();
-            var result = counting.DuplicateCharCount("aabBcde");
+            CountShouldEqual("aabBcde", 2);
+        }
 
-            Assert.AreEqual(2, result);
+        private static void CountShouldEqual(string input, int expected)
+        {
+            CountingDuplicate counting = new CountingDuplicate();
+            var result = counting.DuplicateCharCount(input);
+
+            Assert.AreEqual(expected, result);
         }
     }
 
